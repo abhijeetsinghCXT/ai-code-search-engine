@@ -28,6 +28,14 @@ pip install -r requirements.txt
 python code_search_engine.py
 ```
 
+## ⚠️ Important Note
+
+The search index is not included in this repository due to its size (500+ MB). You need to:
+1. Clone repositories using `python clone_repos.py`
+2. Build the index using `python code_search_engine.py`
+
+This will create your own search index with fresh data.
+
 ## 📊 Performance Metrics
 
 | Metric | Achievement |
