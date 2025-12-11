@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  code-search:
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      - PYTHONUNBUFFERED=1
+    volumes:
+      - ./code_index:/app/code_index
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    restart: unless-stopped
+    networks:
+      - code-search-net
+
+networks:
+  code-search-net:
+    driver: bridge
